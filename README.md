@@ -8,6 +8,8 @@ You can click the Preview link to take a look at your changes.
 --->
 [![](https://github.com/simR122/simR122/blob/main/chat.svg)](https://www.linkedin.com/in/simran-r-306230202/) 
 
+![Visitor Count](https://komarev.com/ghpvc/?username=simR122&color=blue)
+
 
 
 [![](https://github.com/simR122/simR122/blob/main/github_contribution_grid-snake.svg)](https://www.linkedin.com/in/simran-r-306230202/)
