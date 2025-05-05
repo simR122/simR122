@@ -232,7 +232,7 @@
   <!-- Hi, I'm Jason -->
   <g transform="translate(10, 0)" class="msg-1 bubble">
     <rect width="250" height="42" rx="18.0355" />
-    <text x="15" y="27">Hi, I'm Simran Rathdhaniya</text>
+    <text x="15" y="27">Hi there! I'm Simran 👋</text>
   </g>
 
   <!-- typing 2 -->
@@ -256,8 +256,8 @@
   <!-- From Columbus... -->
   <g transform="translate(10, 48)" class="msg-2">
     <rect width="430" height="66.1302" rx="18.0355" class="bubble" />
-    <text x="15" y="27">Open to work as Data Scientist and Researcher</text>
-    <text x="15" y="50">Postgrad from Delhi university'24</text>
+    <text x="15" y="27">A Data Science Enthusiast and Researcher 📊</text>
+    <text x="15" y="50">Master's from Delhi University '24 🎓</text>
   </g>
 
   <!-- typing 3 -->
@@ -281,8 +281,8 @@
   <!-- Work ... -->
   <g transform="translate(10, 120)" class="msg-3">
     <rect width="400" height="66.1302" rx="18.0355" class="bubble" />
-    <text x="15" y="27">Working on projects with real use cases.❤️</text>    
-    <text x="15" y="50">Getting my hands dirty..</text>
+    <text x="15" y="27">Building impactful projects with real-world applications ✨</text>    
+    <text x="15" y="50">Love turning data into insights! 📈</text>
   </g>
 
   <!-- typing 4 -->
@@ -307,7 +307,7 @@
   <!-- Twitter -->
   <g transform="translate(10, 192)" class="msg-4">
     <rect width="270" height="42" rx="18.0355" class="bubble" />
-    <text x="15" y="27">Contributing to OpenSource🚀 </text>
+    <text x="15" y="27">Active Open Source Contributor 🚀</text>
   </g>
    <!-- typing 5 -->
   <g transform="translate(10, 240)" class="typing-5">
@@ -330,7 +330,7 @@
   <!-- Thanks -->
   <g transform="translate(10, 240)" class="msg-5">
     <rect width="300" height="42.1302" rx="18.0355" class="bubble" />
-    <text x="15" y="27">please reach out via <a xlink:href="https://www.linkedin.com/in/simran-r-306230202/">Linkedin ...</a></text>    
+    <text x="15" y="27">Let's connect and build something amazing! 🤝</text>    
   </g>  
   
 

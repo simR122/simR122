@@ -1,0 +1,85 @@
+name: Update Repository List
+
+on:
+  schedule:
+    - cron: '0 0 * * *'  # Runs every day at midnight
+  workflow_dispatch:  # Allows manual trigger
+  push:
+    branches:
+      - main
+    paths:
+      - 'README.md'
+
+jobs:
+  update-repos:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.x'
+          
+      - name: Install dependencies
+        run: pip install requests
+
+      - name: Update Repository List
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          cat > update_repos.py << 'EOL'
+          import requests
+          import re
+
+          def get_repos(username):
+              headers = {'Authorization': f'token {os.environ["GITHUB_TOKEN"]}'}
+              repos = []
+              page = 1
+              while True:
+                  response = requests.get(
+                      f'https://api.github.com/users/{username}/repos?page={page}&per_page=100',
+                      headers=headers
+                  )
+                  if not response.json():
+                      break
+                  repos.extend(response.json())
+                  page += 1
+              return repos
+
+          def update_readme(repos):
+              with open('README.md', 'r') as f:
+                  content = f.read()
+
+              repo_list = ['### My Latest Repositories\n']
+              for repo in sorted(repos, key=lambda x: x['pushed_at'], reverse=True):
+                  if not repo['fork']:  # Skip forked repositories
+                      description = repo['description'] or 'No description available'
+                      repo_list.append(f"- [{repo['name']}]({repo['html_url']}) - {description}\n")
+
+              repo_section = '\n'.join(repo_list)
+              new_content = re.sub(
+                  r'<!-- REPO-LIST:START -->.*<!-- REPO-LIST:END -->',
+                  f'<!-- REPO-LIST:START -->\n{repo_section}<!-- REPO-LIST:END -->',
+                  content,
+                  flags=re.DOTALL
+              )
+
+              with open('README.md', 'w') as f:
+                  f.write(new_content)
+
+          if __name__ == '__main__':
+              import os
+              username = 'simR122'  # Your GitHub username
+              repos = get_repos(username)
+              update_readme(repos)
+          EOL
+          
+          python update_repos.py
+
+      - name: Commit and push if changed
+        run: |
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git config --global user.name "github-actions[bot]"
+          git add README.md
+          git diff --quiet && git diff --staged --quiet || (git commit -m "Update repository list" && git push)
