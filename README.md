@@ -41,6 +41,6 @@
 </td></tr>
 </table> -->
 
-[![](https://github.com/simR122/simR122/blob/main/github_contribution_grid-snake.svg)](https://github.com/simR122/simR122)
-
+<!-- [![](https://github.com/simR122/simR122/blob/main/github_contribution_grid-snake.svg)](https://github.com/simR122/simR122)
+-->
 </div>
